@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap");
+
+:root {
+  --moderate-violet: hsl(263, 55%, 52%);
+  --dark-grayish-blue: hsl(217, 19%, 35%);
+  --dark-blackish-blue: hsl(219, 29%, 14%);
+  --white: hsl(0, 0%, 100%);
+  --light-gray: hsl(0, 0%, 81%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--light-grayish-blue);
+  color: white;
+  font-size: 1.3rem;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 4rem 8rem;
+}
+
+.container {
+  max-width: 122.5rem;
+  width: 100%;
+  display: grid;
+  grid-gap: 3rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  place-items: center;
+}
+
+.card {
+  min-width: 26.5rem;
+  width: 100%;
+  min-height: min-content;
+  height: 100%;
+  border-radius: 1rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  padding: 2.75rem;
+  opacity: 0;
+}
+
+.card-1 {
+  background-color: var(--moderate-violet);
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  position: relative;
+  animation: slideInLeft 0.5s ease-in-out forwards, fadeIn 1s ease-in-out;
+  animation-delay: 0.5s;
+}
+
+.card-1 .bg-quotes {
+  position: absolute;
+  top: 0;
+  left: 63.5%;
+  z-index: 1;
+}
+
+.card-2 {
+  background-color: var(--dark-grayish-blue);
+  grid-row: 1;
+  animation: slideInTop 0.5s ease-in-out forwards, fadeIn 1s ease-in-out;
+  animation-delay: 0.75s;
+}
+
+.card-3,
+.card-4 {
+  color: var(--dark-grayish-blue);
+}
+
+.card-3 {
+  background-color: var(--white);
+  grid-row: 1 / -1;
+  animation: slideInRight 0.5s ease-in-out forwards, fadeIn 1s ease-in-out;
+  animation-delay: 1s;
+}
+
+.card-4 {
+  background-color: var(--white);
+  grid-row: 2;
+  animation: slideInBottomLeft 0.5s ease-in-out forwards, fadeIn 1s ease-in-out;
+  animation-delay: 1.25s;
+}
+
+.card-5 {
+  background-color: var(--dark-blackish-blue);
+  grid-column: 2 / span 2;
+  animation: slideInBottom 0.5s ease-in-out forwards, fadeIn 1s ease-in-out;
+  animation-delay: 1.5s;
+}
+
+.testifier-info {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.testifier-info img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 2px solid;
+  border-color: hsl(263, 55%, 70%);
+}
+
+.card-2 .testifier-info img {
+  border-color: hsl(0, 0%, 81%);
+}
+.card-3 .testifier-info img,
+.card-4 .testifier-info img {
+  border-color: hsl(0, 0%, 81%);
+}
+
+.card-5 .testifier-info img {
+  border-color: hsl(263, 55%, 52%);
+}
+
+.testifier-info address {
+  font-style: normal;
+  cursor: pointer;
+}
+
+.testifier-info address .testifier-status {
+  opacity: 0.5;
+}
+
+.testifier-feedback {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  z-index: 2;
+  position: relative;
+}
+
+.testimony {
+  font-size: 1.45rem;
+  opacity: 0.7;
+  line-height: 1.35;
+}
+
+/* ANIMATIONS */
+@keyframes slideInTop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInBottomLeft {
+  0% {
+    transform: translateY(100%) translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInBottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 75em) {
+  body {
+    padding: 4rem 8rem;
+  }
+
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .testifier-feedback {
+    font-size: 2.2rem;
+  }
+
+  .card-3 {
+    grid-row: 3;
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 56.25em) {
+  body {
+    padding: 5rem;
+  }
+}
+
+@media (max-width: 50em) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 31.25em) {
+  body {
+    padding: 3rem;
+  }
+
+  .testifier-feedback {
+    font-size: 1.8rem;
+  }
+}
