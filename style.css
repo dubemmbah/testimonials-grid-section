@@ -253,7 +253,7 @@ body {
 
 @media (max-width: 31.25em) {
   body {
-    padding: 1.5rem;
+    padding: 1rem;
   }
 
   .testifier-feedback {
